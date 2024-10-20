@@ -7,12 +7,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "external-cheat-base", "exte
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		ARM64|x64 = ARM64|x64
+		ARM64|x86 = ARM64|x86
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D181B4A-5E98-4C6F-B40C-E94921AE06AC}.ARM64|x64.ActiveCfg = ARM64|x64
+		{2D181B4A-5E98-4C6F-B40C-E94921AE06AC}.ARM64|x64.Build.0 = ARM64|x64
+		{2D181B4A-5E98-4C6F-B40C-E94921AE06AC}.ARM64|x86.ActiveCfg = ARM64|Win32
+		{2D181B4A-5E98-4C6F-B40C-E94921AE06AC}.ARM64|x86.Build.0 = ARM64|Win32
 		{2D181B4A-5E98-4C6F-B40C-E94921AE06AC}.Debug|x64.ActiveCfg = Debug|x64
 		{2D181B4A-5E98-4C6F-B40C-E94921AE06AC}.Debug|x64.Build.0 = Debug|x64
 		{2D181B4A-5E98-4C6F-B40C-E94921AE06AC}.Debug|x86.ActiveCfg = Debug|Win32

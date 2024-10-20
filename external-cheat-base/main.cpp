@@ -1,27 +1,24 @@
-#include "renderer/renderer.h"
+#include "cheats/aimbot.h"
+#include <iostream>
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
-    LPSTR lpCmdLine, int nCmdShow)
-{
+#include <thread>
+#include <chrono>
 
-    HWND hwnd = window::InitWindow(hInstance);
-    if (!hwnd) return -1;
-    
-    if (!renderer::init(hwnd))
-    {
-        renderer::destroy();
-        return -1;
+int main() {
+    aimbot::processId = memory::GetProcID(L"cs2.exe");
+
+    std::cout << "Csgo2's process Id: " << aimbot::processId << std::endl;
+
+    aimbot::module_base = memory::GetModuleBaseAddress(aimbot::processId, L"client.dll");
+
+    std::cout << "Found module base client id: 0x" << std::hex << aimbot::module_base << std::endl;
+
+    while (true) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        if (GetAsyncKeyState(VK_LSHIFT)) {
+            aimbot::frame();
+        }
     }
-
-    while (!GetAsyncKeyState(VK_F9)  && renderer::running)
-    {
-        renderer::frame();
-    }
-
-    renderer::destroy();
-    UnregisterClass(L"overlay", hInstance);
 
     return 0;
-
-
 }
